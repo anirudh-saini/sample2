@@ -1,41 +1,47 @@
 import React from "react";
 import Link from "next/link";
-const Nav = () => {
-    return (
-        <>
-        <div className="nav">
-            <div className="nav_logo">
-                <div>
-                    <input
-                        type="checkbox"
-                        id="Toggle"
-                        // onClick={handleCheckboxClick}
-                    />
-                    <label htmlFor="Toggle">
-                        <div className="Menu-container">
-                            <div className="line" id="active"></div>
-                        </div>
-                    </label>
-                </div>
-                {/* <div>
-                    <ul>
-                        <li>Home</li>
-                        <li>Tire Service</li>
-                        <li>Gallery</li>
-                        <li>testimonials</li>
-                        <li>About</li>
-                        <li>Content</li>
-                    </ul>
-                </div> */}
-                <img src="/Logo.png" alt="logo" />
-            </div>
-            <div className="nav_button">
-                <Link href="tel:(619)544-9129">(619)544-9129</Link>
-                <Link href="/">Visit Us Today</Link>
-            </div>
-        </div>
-        </>
-    );
+
+interface NavProps {
+	open: boolean;
+	setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const HamOpen = () => {
+	return <>&#9776;</>;
+};
+
+const HamClose = () => {
+	return <>&#10006;</>;
+};
+
+const Nav = ({ open, setOpen }: NavProps) => {
+	return (
+		<>
+			<div className="nav">
+				<div className="nav_logo">
+					<img src="/Logo.png" alt="logo" />
+				</div>
+				{/* <div className="nav_button">
+					<Link href="tel:(619)544-9129">(619)544-9129</Link>
+					<Link href="/">Visit Us Today</Link>
+				</div> */}
+
+				<div className="nav-items">
+					<div className="nav-items__trigger">
+						<input
+							type="checkbox"
+							id="hamburger"
+							checked={open}
+							onChange={(e) => setOpen(e.target.checked)}
+						/>
+						<label htmlFor="hamburger">
+							{open ? <HamClose /> : <HamOpen />}
+						</label>
+					</div>
+				</div>
+			</div>
+		</>
+	);
 };
 
 export default Nav;

@@ -1,71 +1,126 @@
 .nav {
-    position: sticky;
-    top: 0em;
-    &_logo{
-        background-color: white;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        img{
-            width: 7em;
-        }
-        .line {
-            position: absolute;
-            height: 0.1em;
-            width: 1.5em;
-            background-color: rgb(17, 6, 93);
-            transition: 0.4s ease;
-            bottom: 1.5em;
-            left: 1.3em;
-        }
-        .line::before {
-            content: "";
-            position: absolute;
-            height: 0.1em;
-            width: 1.5em;
-            background-color: rgb(17, 6, 93);
-            top: -0.5em;
-        }
-        #Toggle {
-            display: none;
-        }
-        
-        .line::after {
-            content: "";
-            position: absolute;
-            height: 0.1em;
-            width: 1.5em;
-            background-color: rgb(17, 6, 93);
-            bottom: -0.5em;
-        }
-        #Toggle:checked + label #active {
-            transform: rotate(45deg);
-        }
-        
-        #Toggle:checked + label #active::before {
-            transform: rotate(-90deg) translateX(-0.5em);
-        }
-        
-        #Toggle:checked + label #active::after {
-            display: none;
-        }
-    }
-    &_button {
-        display: flex;
-        // outline: 2px solid red;
-        justify-content: space-between;
-        padding: 0.5em 0.3em;
-        background-color: rgb(217, 210, 210);
-        a {
-            border-radius: 0.3em;
-            text-decoration: none;
-            background-color: rgb(141, 5, 5);
-            color: white;
-            padding: 0.6em 2.3em;
-            &:hover {
-                background-color: rgb(181, 169, 8);
-            }
-        }
-    }
+	position: sticky;
+	top: 0;
+
+	&_logo {
+		// background-color: white;
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		img {
+			width: 7em;
+		}
+		.line {
+			position: absolute;
+			height: 0.1em;
+			width: 1.5em;
+			background-color: rgb(17, 6, 93);
+			transition: 0.4s ease;
+			bottom: 1.5em;
+			left: 1.3em;
+		}
+		.line::before {
+			content: "";
+			position: absolute;
+			height: 0.1em;
+			width: 1.5em;
+			background-color: rgb(17, 6, 93);
+			top: -0.5em;
+		}
+		#Toggle {
+			display: none;
+		}
+
+		.line::after {
+			content: "";
+			position: absolute;
+			height: 0.1em;
+			width: 1.5em;
+			background-color: rgb(17, 6, 93);
+			bottom: -0.5em;
+		}
+		#Toggle:checked + label #active {
+			transform: rotate(45deg);
+		}
+
+		#Toggle:checked + label #active::before {
+			transform: rotate(-90deg) translateX(-0.5em);
+		}
+
+		#Toggle:checked + label #active::after {
+			display: none;
+		}
+	}
+	&_button {
+		display: flex;
+		// outline: 2px solid red;
+		justify-content: space-between;
+		padding: 0.5em 0.3em;
+		background-color: rgb(217, 210, 210);
+		a {
+			border-radius: 0.3em;
+			text-decoration: none;
+			background-color: rgb(141, 5, 5);
+			color: white;
+			padding: 0.6em 2.3em;
+			&:hover {
+				background-color: rgb(181, 169, 8);
+			}
+		}
+	}
+}
+
+.nav {
+	input {
+		display: none;
+	}
+
+	label {
+		font-size: 2rem;
+		z-index: 999;
+	}
+}
+
+.main {
+	transition: left 300ms;
+	overflow: hidden;
+	position: relative;
+	left: 0;
+
+	&::before {
+		transition: background-color 300ms;
+		position: absolute;
+		content: "";
+		inset: 0;
+	}
+
+	&.nav-open {
+		left: 80%;
+		position: relative;
+
+		&::before {
+			background-color: rgba(128, 128, 128, 0.233);
+		}
+	}
+}
+
+.nav-links {
+	outline: 2px solid lightgreen;
+	position: absolute;
+	color: whitesmoke;
+	background-color: #333;
+
+	top: 0;
+	left: 0;
+	right: 20%;
+	bottom: 0;
+
+	transition: all 300ms;
+
+	clip-path: inset(0 100% 0 0);
+
+	&.open {
+		clip-path: inset(0);
+	}
 }

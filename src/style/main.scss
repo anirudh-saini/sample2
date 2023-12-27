@@ -1,7 +1,17 @@
-@use "./abstracts" ;
+@use "./abstracts";
 @use "./components";
-.container{
-    // width: 96px;
-    width: min(95%, 20em);
-    margin-inline:auto;
+.container {
+	// width: 96px;
+	width: min(95%, 20em);
+	margin-inline: auto;
+}
+
+body {
+	// overflow: hidden;
+	// background-color: lightblue;
+}
+
+.god {
+	overflow-x: hidden;
+	position: relative;
 }
