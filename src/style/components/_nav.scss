@@ -1,0 +1,71 @@
+.nav {
+    position: sticky;
+    top: 0em;
+    &_logo{
+        background-color: white;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 7em;
+        }
+        .line {
+            position: absolute;
+            height: 0.1em;
+            width: 1.5em;
+            background-color: rgb(17, 6, 93);
+            transition: 0.4s ease;
+            bottom: 1.5em;
+            left: 1.3em;
+        }
+        .line::before {
+            content: "";
+            position: absolute;
+            height: 0.1em;
+            width: 1.5em;
+            background-color: rgb(17, 6, 93);
+            top: -0.5em;
+        }
+        #Toggle {
+            display: none;
+        }
+        
+        .line::after {
+            content: "";
+            position: absolute;
+            height: 0.1em;
+            width: 1.5em;
+            background-color: rgb(17, 6, 93);
+            bottom: -0.5em;
+        }
+        #Toggle:checked + label #active {
+            transform: rotate(45deg);
+        }
+        
+        #Toggle:checked + label #active::before {
+            transform: rotate(-90deg) translateX(-0.5em);
+        }
+        
+        #Toggle:checked + label #active::after {
+            display: none;
+        }
+    }
+    &_button {
+        display: flex;
+        // outline: 2px solid red;
+        justify-content: space-between;
+        padding: 0.5em 0.3em;
+        background-color: rgb(217, 210, 210);
+        a {
+            border-radius: 0.3em;
+            text-decoration: none;
+            background-color: rgb(141, 5, 5);
+            color: white;
+            padding: 0.6em 2.3em;
+            &:hover {
+                background-color: rgb(181, 169, 8);
+            }
+        }
+    }
+}
